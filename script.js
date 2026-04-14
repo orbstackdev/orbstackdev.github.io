@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     typeText(typingElement, "We'll be live soon");
 
-    bgAudio.volume = 0.15;
+    bgAudio.volume = 0.30;
 
     // Start playing the audio (muted attribute allows autoplay)
     bgAudio.play().then(function() {
