@@ -1,0 +1,36 @@
+body {
+    height: 100vh;
+    background: #E0E0E0 url('Assets/circle_line.png') no-repeat center center;
+    background-size: contain;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    cursor: none;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+#cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.1s ease;
+    z-index: 1000;
+}
+
+#cursor.pointer {
+    transform: scale(2);
+}
