@@ -51,7 +51,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('mousemove', function(e) {
-        cursor.style.left = (e.clientX - 5) + 'px';
-        cursor.style.top = (e.clientY - 5) + 'px';
+        const cursorSize = parseInt(getComputedStyle(cursor).width);
+        const offset = cursorSize / 2;
+        
+        let left = e.clientX - offset;
+        let top = e.clientY - offset;
+        
+        // Clamp to viewport
+        left = Math.max(0, Math.min(left, window.innerWidth - cursorSize));
+        top = Math.max(0, Math.min(top, window.innerHeight - cursorSize));
+        
+        cursor.style.left = left + 'px';
+        cursor.style.top = top + 'px';
     });
 });
