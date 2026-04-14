@@ -122,8 +122,11 @@ body {
     }
     
     #cursor {
-        width: 8px;
-        height: 8px;
+        display: none;
+    }
+    
+    #cursor.pointer {
+        transform: scale(2);
     }
 }
 
@@ -151,7 +154,6 @@ body {
     }
     
     #cursor {
-        width: 6px;
-        height: 6px;
+        display: none;
     }
 }
