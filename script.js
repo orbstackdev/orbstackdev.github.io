@@ -26,15 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     typeText(typingElement, "We'll be live soon");
 
-    bgAudio.volume = 0.30;
+    bgAudio.volume = 0.20;
 
-    // Start playing the audio (muted attribute allows autoplay)
     bgAudio.play().then(function() {
-        // Unmute the audio to start hearing it
         bgAudio.muted = false;
     }).catch(function(error) {
         console.log('Audio auto-play failed:', error);
-        // If autoplay fails, user can click the button to start
     });
 
     audioToggle.addEventListener('click', function() {
