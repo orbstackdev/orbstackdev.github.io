@@ -1,26 +1,54 @@
-// Basic JavaScript for Orbstack Dev landing page
+
 console.log('Orbstack Dev landing page loaded');
 
-// Example: Add some interactivity
-document.addEventListener('DOMContentLoaded', function() {
-    const h1 = document.querySelector('h1');
-    const cursor = document.getElementById('cursor');
+// Typing animation
+function typeText(element, text, speed = 100) {
+    let index = 0;
+    element.textContent = '';
+    
+    function type() {
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
 
-    // Move custom cursor
-    document.addEventListener('mousemove', function(e) {
-        cursor.style.left = (e.clientX - 10) + 'px';
-        cursor.style.top = (e.clientY - 10) + 'px';
+// Audio 
+document.addEventListener('DOMContentLoaded', function() {
+    const bgAudio = document.getElementById('bgAudio');
+    const audioToggle = document.getElementById('audioToggle');
+    const cursor = document.getElementById('cursor');
+    const typingElement = document.getElementById('typingText');
+
+    typeText(typingElement, "We'll be live soon");
+
+    bgAudio.volume = 0.15;
+
+    bgAudio.play().catch(function(error) {
+        console.log('Audio auto-play failed:', error);
     });
 
-    // Change cursor size on hover over clickable elements
-    h1.addEventListener('mouseenter', function() {
+    audioToggle.addEventListener('click', function() {
+        if (bgAudio.paused) {
+            bgAudio.play();
+        } else {
+            bgAudio.pause();
+        }
+    });
+
+    audioToggle.addEventListener('mouseenter', function() {
         cursor.classList.add('pointer');
     });
-    h1.addEventListener('mouseleave', function() {
+    audioToggle.addEventListener('mouseleave', function() {
         cursor.classList.remove('pointer');
     });
 
-    h1.addEventListener('click', function() {
-        alert('Welcome to Orbstack Dev!');
-    });
+    // document.addEventListener('mousemove', function(e) {
+    //     cursor.style.left = (e.clientX - 5) + 'px';
+    //     cursor.style.top = (e.clientY - 5) + 'px';
+    // });
 });
