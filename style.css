@@ -14,20 +14,15 @@ body {
     text-align: center;
 }
 
-h1 {
-    color: #333;
-    font-size: 3rem;
-    cursor: pointer;
-}
 
 #cursor {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     background-color: #3333336d;
     border-radius: 50%;
     pointer-events: none;
-    transition: transform 0.1s ease;
+    transition: transform 0.5s ease;
     z-index: 1000;
 }
 
