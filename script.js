@@ -28,13 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     bgAudio.volume = 0.15;
 
-    bgAudio.play().catch(function(error) {
+    // Start playing the audio (muted attribute allows autoplay)
+    bgAudio.play().then(function() {
+        // Unmute the audio to start hearing it
+        bgAudio.muted = false;
+    }).catch(function(error) {
         console.log('Audio auto-play failed:', error);
+        // If autoplay fails, user can click the button to start
     });
 
     audioToggle.addEventListener('click', function() {
         if (bgAudio.paused) {
             bgAudio.play();
+            bgAudio.muted = false;
         } else {
             bgAudio.pause();
         }
@@ -47,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
         cursor.classList.remove('pointer');
     });
 
-    // document.addEventListener('mousemove', function(e) {
-    //     cursor.style.left = (e.clientX - 5) + 'px';
-    //     cursor.style.top = (e.clientY - 5) + 'px';
-    // });
+    document.addEventListener('mousemove', function(e) {
+        cursor.style.left = (e.clientX - 5) + 'px';
+        cursor.style.top = (e.clientY - 5) + 'px';
+    });
 });
