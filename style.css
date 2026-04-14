@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     background: #E0E0E0 url('Assets/circle_line.png') no-repeat center center;
-    background-size: contain;
+    background-size: cover;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -24,7 +24,7 @@ h1 {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: #333;
+    background-color: #3333336d;
     border-radius: 50%;
     pointer-events: none;
     transition: transform 0.1s ease;
